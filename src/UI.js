@@ -3,9 +3,7 @@ import plusSvg from './assets/plus.svg';
 import plusWhiteSvg from './assets/plus-white.svg';
 
 export default function init() {
-    appendLogo();
-    appendPlusSvg();
-    appendPlusWhiteSvg();
+    appendAssets();
     bindEvents();
 }
 
@@ -14,13 +12,17 @@ function getDom() {
         headerLogo: document.querySelector('.header-logo'),
         addProjectBtn: document.querySelector('#add-project-btn'),
         addTodoBtn: document.querySelector('#add-todo-btn'),
-        dialog: document.querySelector('.modal')
+        dialog: document.querySelector('.modal'),
+        dialogSubmitBtn: document.querySelector('#dialog-submit-btn'),
+        dialogCloseBtn: document.querySelector('#dialog-close-btn')
     }
 }
 
 function bindEvents() {
     getDom().addTodoBtn.addEventListener('click', openNewTodoModal);
     getDom().addProjectBtn.addEventListener('click', openNewProjectModal);
+ //   getDom().dialogSubmitBtn.addEventListener('click', addNewTodo); // 
+    getDom().dialogCloseBtn.addEventListener('click', () => getDom().dialog.close())
 }
 
 function openNewTodoModal() {
@@ -28,6 +30,12 @@ function openNewTodoModal() {
 }
 function openNewProjectModal() {
     console.log("opening")
+}
+
+function appendAssets() {
+    appendLogo();
+    appendPlusSvg();
+    appendPlusWhiteSvg();
 }
 
 function appendLogo() {

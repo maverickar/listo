@@ -135,6 +135,7 @@ dialog {
     left: 50%;
     transform: translate(-50%, -50%);  /* why do I need this */
     font-size: 1.5rem;
+    color: var(--darkblue);
 }
 
 dialog[open] {
