@@ -1,0 +1,212 @@
+:root {
+    --grey: #e7eaf6;
+    --darkgrey: #aeb0b8;
+    --lightblue: #a2a8d3;
+    --blue: #38598b;
+    --darkblue: #113f67;
+    --font: 'Josefin Sans', sans-serif;
+    font-family: var(--font);
+    font-size: 14px;
+}
+
+body {
+    margin: auto;
+    color: var(--grey);
+}
+
+.container {
+    display: grid;
+    grid-template-rows: 150px 3fr;
+}
+
+.header-container {
+    background-color: var(--blue);
+    display: flex;
+}
+
+.header-logo {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-left: 3rem;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 5rem;
+    font-size: 4rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 3fr 10fr;
+    min-height: calc(100vh - 150px);
+}
+
+/* sidebar ------------------------------------------*/
+
+.sidebar-container {
+    background-color: var(--grey);
+}
+
+.sidebar-links {
+    color: var(--darkblue);
+    font-size: 2rem;
+}
+
+.sidebar-title {
+    margin: 0;
+    padding: 1rem 2rem;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 1rem 1rem;
+}
+
+.sidebar-links>ul>li {
+    padding: 1rem 3rem;
+    border-radius: 5px;
+}
+
+.sidebar-links>ul>li:hover {
+    background-color: var(--darkgrey);
+    cursor: pointer;
+}
+
+#add-project-btn {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    padding: 0 3rem;
+    background-color: var(--grey);
+    width: 100%;
+    border: none;
+    font-family: var(--font);
+    padding: 1rem 0rem;
+    font-size: 2rem;
+    color: var(--darkblue)
+}
+
+#add-project-btn:hover {
+    background-color: var(--darkgrey);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* main --------------------------------- */
+
+#add-todo-btn {
+    background-color: var(--blue);
+    border: none;
+    z-index: 1;
+    position: fixed;
+    bottom: 3rem;
+    right: 3rem;
+    padding: 1rem;
+    border-radius: 50%;
+    box-shadow: 2px 4px 4px var(--darkgrey);
+}
+
+#add-todo-btn:hover {
+    cursor: pointer;
+    transform: translateX(-1rem);
+    transition: 1s;
+}
+
+/* modals --------------------------- */
+
+dialog {
+    background-color: var(--grey);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 65vh;
+    width: 65vw;
+    z-index: 3;
+    padding: 2.5rem;
+    margin: 1rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);  /* why do I need this */
+    font-size: 1.5rem;
+}
+
+dialog[open] {
+    display: flex;
+}
+
+::backdrop {
+    background-color: rgba(0,0,0,0.5);
+    backdrop-filter: blur(10px);
+}
+
+dialog>form {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+textarea {
+    resize: none;
+    height: 10rem;
+    width: 25rem;
+}
+
+fieldset {
+    grid-column: 1 / -1;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+fieldset>label {
+    
+    font-size: 1.5rem;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    margin: 0 2rem;
+}
+
+fieldset>#label-low {
+    color: green;
+    border: 2px solid green;
+}
+
+fieldset>#label-medium {
+    color: orange;
+    border: 2px solid orange;
+}
+
+fieldset>#label-high {
+    color: red;
+    border: 2px solid red;
+}
+
+
+input[type="radio"][name="priority"] {
+    display: none;
+}
+
+
+input[type='radio'][name="priority"]:checked + #label-low {
+     background-color: green;
+     color: white; 
+}
+
+input[type='radio'][name="priority"]:checked + #label-medium {
+    background-color: orange;
+    color: white; 
+}
+
+input[type='radio'][name="priority"]:checked + #label-high {
+    background-color: red;
+    color: white; 
+}
