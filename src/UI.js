@@ -1,6 +1,7 @@
 import checkmarkLogo from './assets/checkmark.svg';
 import plusSvg from './assets/plus.svg';
 import plusWhiteSvg from './assets/plus-white.svg';
+import addNewTodo from './toDoCreator';
 
 export default function init() {
     appendAssets();
@@ -21,8 +22,18 @@ function getDom() {
 function bindEvents() {
     getDom().addTodoBtn.addEventListener('click', openNewTodoModal);
     getDom().addProjectBtn.addEventListener('click', openNewProjectModal);
- //   getDom().dialogSubmitBtn.addEventListener('click', addNewTodo); // 
+    getDom().dialogSubmitBtn.addEventListener('click', addNewTodo); 
     getDom().dialogCloseBtn.addEventListener('click', () => getDom().dialog.close())
+}
+
+export function getFormData() {
+    return {
+        title: document.querySelector('#title').value,
+        description: document.querySelector('#description').value,
+        dueDate: document.querySelector('#dueDate').value,
+        project: document.querySelector('#project'),
+        priority: document.querySelector('input[name="priority"]:checked').value
+    }
 }
 
 function openNewTodoModal() {

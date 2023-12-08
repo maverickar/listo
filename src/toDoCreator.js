@@ -1,6 +1,7 @@
 // There are also project (categories) for the to-dos.
-export default function createToDo(title, description, dueDate, priority, project) {
-    
+import { getFormData } from "./UI"
+export default function addNewTodo(title, description, dueDate, priority, project) {
+    getNewTodoFromInput();
 
     return {
         title,
@@ -9,4 +10,9 @@ export default function createToDo(title, description, dueDate, priority, projec
         priority,
         project
     }
+}
+
+function getNewTodoFromInput() {
+    console.log(getFormData());
+    
 }
